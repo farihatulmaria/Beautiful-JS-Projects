@@ -23,25 +23,23 @@ const weekdays = [
 ];
 
 // DOM
-
 const giveAway = document.querySelector(".giveaway");
 const deadline = document.querySelector(".deadline");
 const items = document.querySelectorAll(".deadline-format h4");
 
 //seting the dymic giveaway time
 
-let futureDate = new Date(2022, 3, 25, 11, 30, 0);
+let futureDate = new Date(2020, 3, 25, 11, 30, 0);
+
 const year = futureDate.getFullYear();
 const hour = futureDate.getHours();
 const mins = futureDate.getMinutes();
 
 const month = months[futureDate.getMonth()];
-
 const date = futureDate.getDate();
-
 const weekday = weekdays[futureDate.getDay()];
 
-giveAway.textContent = `Giveaway Ends On : ${weekday} ${date} ${month} ${year} ${hour}:${mins}am `;
+giveAway.textContent = `Giveaway Ends On : ${weekday} ${date} ${month} ${year} ${hour}:${mins} `;
 
 // future time is ms
 
@@ -59,6 +57,8 @@ function getRemainingTime() {
   const oneDay = 24 * 60 * 60 * 1000;
   const oneHour = 60 * 60 * 1000;
   const oneMinute = 60 * 1000;
-  let days = t / oneDay;
+  let days = Math.floor(t / oneDay);
+  let hour = Math.floor((t % oneDay) / oneHour);
+  console.log(hour);
 }
 getRemainingTime();
