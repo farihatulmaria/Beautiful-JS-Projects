@@ -11,6 +11,11 @@ btn.addEventListener("click", function () {
   color.textContent = hexColor;
   document.body.style.backgroundColor = hexColor;
 });
+ 
+color.addEventListener("hover", function(){
+  copyToClipboard(color.textContent)
+})
+
 function getRandomNum() {
   return Math.floor(Math.random() * hex.length);
 }
